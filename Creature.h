@@ -13,7 +13,11 @@ public:
     ~Creature();
 
 public:
-    Room *location;
+    Room* location;
+
+    Room* GetLocation() {
+        return location;
+    }
 };
 
 #endif // __CREATURE_H__

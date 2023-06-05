@@ -8,7 +8,7 @@ class Exit :
     public Entity
 {
 public:
-    Exit(std::string name, std::string description, Room *source, Room *destination);
+    Exit(std::string name, std::string description, std::string directionName, std::string oppositeDirectionName, Room* source, Room* destination);
     ~Exit();
 
 
@@ -20,8 +20,11 @@ public:
         EAST
     };
 
-    Room *source;
-    Room *destination;
+    std::string directionName;
+    std::string oppositeDirectionName;
+    Room* source;
+    Room* destination;
+    Type type;
 };
 
 #endif // __EXIT_H__

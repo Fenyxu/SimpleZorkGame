@@ -16,6 +16,7 @@ public:
 public:
 	enum Type
 	{
+		ENTITY,
 		CREATURE,
 		NPC,
 		PLAYER,
@@ -27,6 +28,7 @@ public:
 	std::string name;
 	std::string description;
 	std::list<Entity*> contains;
+	Type type;
 
 	//virtual void Update();
 

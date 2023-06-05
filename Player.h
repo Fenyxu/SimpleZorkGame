@@ -9,6 +9,9 @@ class Player :
 public:
     Player(std::string name, std::string description, Room* location);
     ~Player();
+
+public:
+    bool Move(std::string direction);
 };
 
 
