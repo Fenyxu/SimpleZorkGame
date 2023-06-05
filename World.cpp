@@ -7,6 +7,7 @@
 
 World::World() {
 	// Rooms
+	// TODO put this data read from file
 	Room* northHouse = new Room("North of the House", "Here you can see the whole north facade of the house.");
 	Room* westHouse = new Room("West of the House", "At the west you can see a cave entrance.\nTo the north you can see a log cabin.\nHere you can see a rusty basement cellar door mid openned.");
 	Room* eastHouse = new Room("East of the House", "You can see a kitchen through the window.");
@@ -17,25 +18,73 @@ World::World() {
 	Room* livingRoom = new Room("Living Room", "");
 	Room* kitchen = new Room("Kitchen", "");
 
-	addEntitiesToVector(entities, northHouse, westHouse, eastHouse, southHouse, logCabin, cave, basement, livingRoom, kitchen);
+	// TODO put this logic into a function
+	entities.push_back(northHouse);
+	entities.push_back(westHouse);
+	entities.push_back(eastHouse);
+	entities.push_back(southHouse);
+	entities.push_back(logCabin);
+	entities.push_back(cave);
+	entities.push_back(basement);
+	entities.push_back(livingRoom);
+	entities.push_back(kitchen);
 
 	// Exits
-	Exit* exSouthHouseAndLivingRoom = new Exit("", "", southHouse, livingRoom);
-	Exit* exSouthHouseAndWestHouse = new Exit("", "", southHouse, westHouse);
-	Exit* exWestHouseAndCave = new Exit("", "", westHouse, cave);
-	Exit* exWestHouseAndLogCabin = new Exit("", "", westHouse, logCabin);
-	Exit* exWestHouseAndBasement = new Exit("", "", westHouse, basement);
-	Exit* exLogCabinAndNorthHouse = new Exit ("", "", logCabin, northHouse);
-	Exit* exNorthHouseAndEastHouse = new Exit("", "", northHouse, eastHouse);
-	Exit* exEastHouseAndSouthHouse = new Exit("", "", northHouse, eastHouse);
-	Exit* exBasementAndLivingRoom = new Exit("", "", basement, livingRoom);
-	Exit* exLivingRoomAndKitchen = new Exit("", "", livingRoom, kitchen);
+	// TODO put this data read from file
+	Exit* exSouthHouseAndLivingRoom = new Exit("Exit 1", "Exit between South House and Living Room", "north", "south", southHouse, livingRoom);
+	Exit* exLivingRoomAndSouthHouse = new Exit("Exit 1.5", "Exit between Living Room and South House", "south", "north", livingRoom, southHouse);
 
-	addEntitiesToVector(entities, exSouthHouseAndLivingRoom, exSouthHouseAndWestHouse, exWestHouseAndCave, exWestHouseAndLogCabin, exWestHouseAndBasement, exLogCabinAndNorthHouse,
-		exNorthHouseAndEastHouse, exEastHouseAndSouthHouse, exBasementAndLivingRoom, exLivingRoomAndKitchen);
+	Exit* exSouthHouseAndWestHouse = new Exit("Exit 2", "Exit between South House and West House", "west", "south", southHouse, westHouse);
+	Exit* exdWestHouseAndSouthHouse = new Exit("Exit 2.5", "Exit between West House and South House", "south", "west", westHouse, southHouse);
+
+	Exit* exWestHouseAndCave = new Exit("Exit 3", "Exit between West House and Cave", "west", "east", westHouse, cave);
+	Exit* exCaveAndWestHouse = new Exit("Exit 3.5", "Exit between West House and Cave", "east", "west", cave, westHouse);
+
+	Exit* exWestHouseAndLogCabin = new Exit("Exit 4", "Exit between West House and Log Cavin", "north", "south", westHouse, logCabin);
+	Exit* exLogCabinAndWestHouse = new Exit("Exit 4.5", "Exit between Log Cavin and West House", "south", "north", logCabin, westHouse);
+
+	Exit* exWestHouseAndBasement = new Exit("Exit 5", "Exit between West House and Basement", "east", "west", westHouse, basement);
+	Exit* exBasementAndWestHouse = new Exit("Exit 5.5", "Exit between Basement and West House", "west", "east", basement, westHouse);
+
+	Exit* exLogCabinAndNorthHouse = new Exit ("Exit 6", "Exit between Log Cabin and North House", "east", "west", logCabin, northHouse);
+	Exit* exNorthHouseAndLogCabin = new Exit("Exit 6.5", "Exit between North House and Log Cabin", "west", "east", northHouse, logCabin);
+
+	Exit* exNorthHouseAndEastHouse = new Exit("Exit 7", "Exit between North House and East House", "east", "north", northHouse, eastHouse);
+	Exit* exEastHouseAndNorthHouse = new Exit("Exit 7.5", "Exit between East House and North House", "north", "east", eastHouse, northHouse);
+
+	Exit* exEastHouseAndSouthHouse = new Exit("Exit 8", "Exit between East House and South House", "south", "east", eastHouse, southHouse);
+	Exit* exSouthHouseAndEastHouse = new Exit("Exit 8.5", "Exit between South House and East House", "east", "south", southHouse, eastHouse);
+
+	Exit* exBasementAndLivingRoom = new Exit("Exit 9", "Exit between Basement and Living Room", "east", "west", basement, livingRoom);
+	Exit* exLivingRoomAndBasement = new Exit("Exit 9.5", "Exit between Living Room and Basement", "west", "east", livingRoom, basement);
+
+	Exit* exLivingRoomAndKitchen = new Exit("Exit 10", "Exit between Living Room and Kitchen", "east", "west", livingRoom, kitchen);
+	Exit* exKitchenAndLivingRoom = new Exit("Exit 10.5", "Exit between Kitchen and Living Room", "west", "east", kitchen, livingRoom);
+
+	// TODO put this logic into a function
+	entities.push_back(exSouthHouseAndLivingRoom);
+	entities.push_back(exLivingRoomAndSouthHouse);
+	entities.push_back(exSouthHouseAndWestHouse);
+	entities.push_back(exdWestHouseAndSouthHouse);
+	entities.push_back(exWestHouseAndCave);
+	entities.push_back(exCaveAndWestHouse);
+	entities.push_back(exWestHouseAndLogCabin);
+	entities.push_back(exLogCabinAndWestHouse);
+	entities.push_back(exWestHouseAndBasement);
+	entities.push_back(exBasementAndWestHouse);
+	entities.push_back(exLogCabinAndNorthHouse);
+	entities.push_back(exNorthHouseAndLogCabin);
+	entities.push_back(exNorthHouseAndEastHouse);
+	entities.push_back(exEastHouseAndNorthHouse);
+	entities.push_back(exEastHouseAndSouthHouse);
+	entities.push_back(exSouthHouseAndEastHouse);
+	entities.push_back(exBasementAndLivingRoom);
+	entities.push_back(exLivingRoomAndBasement);
+	entities.push_back(exLivingRoomAndKitchen);
+	entities.push_back(exKitchenAndLivingRoom);
+
 	
-
-	Player* player = new Player("The Player", "This a future Hero", southHouse);
+	player = new Player("The Player", "This a future Hero", southHouse);
 
 	entities.push_back(player);
 }
@@ -46,9 +95,4 @@ World::~World() {
 		std::cout << "Executing Destroyer for Entity " << entity->name << std::endl;
 		delete entity;
 	}
-}
-
-void addEntitiesToVector(std::vector<Entity*> entities, std::vector<Entity*> entitiesToAdd) {
-	for (Entity* ent : entitiesToAdd)
-		entities.push_back(ent);
 }

@@ -1,8 +1,8 @@
-#ifndef __WORLD_H__
-#define __WORLD_H__
+#pragma once
 
 #include <vector>
 #include "Entity.h"
+#include "Player.h"
 
 class World
 {
@@ -12,7 +12,6 @@ public:
 
 public:
 	std::vector<Entity*> entities;
-	void addEntitiesToVector(std::vector<Entity*> entities, Entity* entity...);
+	Player* player;
 };
 
-#endif //__WORLD_H__
