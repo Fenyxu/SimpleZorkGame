@@ -1,6 +1,4 @@
-#ifndef __PLAYER_H__
-#define __PLAYER_H__
-
+#pragma once
 #include "Creature.h"
 class Player :
     public Creature
@@ -11,9 +9,6 @@ public:
     ~Player();
 
 public:
-    bool Move(std::string direction);
+    bool Move(std::string direction, std::vector<Entity*> entities);
 };
 
-
-
-#endif // __PLAYER_H__

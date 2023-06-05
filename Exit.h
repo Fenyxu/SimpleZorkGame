@@ -1,13 +1,14 @@
-#ifndef __EXIT_H__
-#define __EXIT_H__
+#pragma once
 
-#include "Entity.h"
 #include "Room.h"
+
+class Room;
 
 class Exit :
     public Entity
 {
 public:
+    Exit();
     Exit(std::string name, std::string description, std::string directionName, std::string oppositeDirectionName, Room* source, Room* destination);
     ~Exit();
 
@@ -24,7 +25,4 @@ public:
     std::string oppositeDirectionName;
     Room* source;
     Room* destination;
-    Type type;
 };
-
-#endif // __EXIT_H__

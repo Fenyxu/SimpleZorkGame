@@ -1,5 +1,4 @@
-#ifndef __CREATURE_H__
-#define __CREATURE_H__
+#pragma once
 
 #include "Entity.h"
 #include "Room.h"
@@ -18,6 +17,8 @@ public:
     Room* GetLocation() {
         return location;
     }
-};
 
-#endif // __CREATURE_H__
+    bool SetLocation(Room* room) {
+        location = room;
+    }
+};

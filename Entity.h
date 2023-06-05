@@ -1,5 +1,4 @@
-#ifndef __ENTITY_H__
-#define __ENTITY_H__
+#pragma once
 
 #include <string>
 #include <list>
@@ -8,6 +7,7 @@ class Entity
 {
 
 public:
+	Entity();
 	Entity(std::string name, std::string description);
 	~Entity();
 
@@ -33,5 +33,3 @@ public:
 	//virtual void Update();
 
 };
-
-#endif // __ENTITY_H__

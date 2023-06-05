@@ -1,5 +1,4 @@
-#ifndef __WORLD_H__
-#define __WORLD_H__
+#pragma once
 
 #include <vector>
 #include "Entity.h"
@@ -16,4 +15,3 @@ public:
 	Player* player;
 };
 
-#endif //__WORLD_H__
