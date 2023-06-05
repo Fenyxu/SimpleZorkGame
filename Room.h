@@ -5,6 +5,11 @@
 class Room :
     public Entity
 {
+
+public:
+    Room(std::string name, std::string description);
+    ~Room();
+
 };
 
 #endif // __ROOM_H__

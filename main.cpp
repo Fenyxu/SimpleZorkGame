@@ -1,13 +1,19 @@
 #include <iostream>
+#include "World.h"
 #include "Entity.h"
+#include "Room.h"
 
 int main() {
-	std::cout << "Hello" << std::endl;
 
-	Entity *entity1 = new Entity();
-	entity1->name = "Name1";
+	World world;
 
-	std::cout << entity1->name << std::endl;
+	std::cout << "Welcome to this SimpleZorkGame created by Fenyxu" << std::endl;
+
+	while (true) {
+		
+	}
+
+	std::cout << "Thanks for playing";
 
 	return 0;
 }

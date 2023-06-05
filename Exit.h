@@ -8,6 +8,11 @@ class Exit :
     public Entity
 {
 public:
+    Exit(std::string name, std::string description, Room *source, Room *destination);
+    ~Exit();
+
+
+public:
     enum Direction {
         NORTH,
         SOUTH,

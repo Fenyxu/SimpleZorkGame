@@ -6,11 +6,13 @@
 
 class World
 {
-
-	//TODO handle constructor and destructor
+public:
+	World();
+	~World();
 
 public:
 	std::vector<Entity*> entities;
+	void addEntitiesToVector(std::vector<Entity*> entities, Entity* entity...);
 };
 
 #endif //__WORLD_H__

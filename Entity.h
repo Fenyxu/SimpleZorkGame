@@ -7,6 +7,10 @@
 class Entity
 {
 
+public:
+	Entity(std::string name, std::string description);
+	~Entity();
+
 //TODO handle constructor and destructor
 
 public:

@@ -8,6 +8,9 @@
 class Creature :
     public Entity
 {
+public: 
+    Creature(std::string name, std::string description, Room* location);
+    ~Creature();
 
 public:
     Room *location;
