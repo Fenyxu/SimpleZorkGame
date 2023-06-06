@@ -27,3 +27,15 @@ Exit* Room::GetExit(std::string direction, std::vector<Entity*> entities) {
 
 	return NULL;
 }
+
+void Room::AddItem(Item* item) {
+	this->items.push_back(item);
+}
+
+void Room::DeleteItem(Item* item) {
+	this->items.remove(item);
+}
+
+std::list<Item*> Room::GetItems() {
+	return items;
+}

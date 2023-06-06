@@ -4,10 +4,11 @@
 #include "Room.h"
 #include "Exit.h"
 #include "Player.h"
+#include "Item.h"
 
 World::World() {
 	// Rooms
-	// TODO put this data read from file
+	// TODO put this data read from file to create Rooms
 	Room* northHouse = new Room("North of the House", "Here you can see the whole north facade of the house.");
 	Room* westHouse = new Room("West of the House", "At the west you can see a cave entrance.\nTo the north you can see a log cabin.\nHere you can see a rusty basement cellar door mid openned.");
 	Room* eastHouse = new Room("East of the House", "You can see a kitchen through the window.");
@@ -29,8 +30,16 @@ World::World() {
 	entities.push_back(livingRoom);
 	entities.push_back(kitchen);
 
+	Item* lantern = new Item("lantern", "A lantern");
+	basement->AddItem(lantern);
+	entities.push_back(lantern);
+
+	Item* axe = new Item("axe", "An Axe");
+	logCabin->AddItem(axe);
+	entities.push_back(axe);
+
 	// Exits
-	// TODO put this data read from file
+	// TODO put this data read from file to create all the Exits
 	Exit* exSouthHouseAndLivingRoom = new Exit("Exit 1", "Exit between South House and Living Room", "north", "south", southHouse, livingRoom);
 	Exit* exLivingRoomAndSouthHouse = new Exit("Exit 1.5", "Exit between Living Room and South House", "south", "north", livingRoom, southHouse);
 

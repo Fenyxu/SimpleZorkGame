@@ -2,6 +2,19 @@
 #include "World.h"
 #include "Entity.h"
 #include "Room.h"
+#include <sstream>
+
+void tokenize(std::string const& str, const char delim,
+	std::vector<std::string>& out)
+{
+	// construct a stream from the string 
+	std::stringstream ss(str);
+
+	std::string s;
+	while (std::getline(ss, s, delim)) {
+		out.push_back(s);
+	}
+}
 
 int main() {
 
@@ -9,31 +22,43 @@ int main() {
 
 	std::cout << "Welcome to this SimpleZorkGame created by Fenyxu" << std::endl;
 
-	// Input and game handling will be improved lately
+	// Basic input strategy
 	while (true) {
-		std::string input;
+		std::string input {};
+		const char delim = ' ';
+		std::vector<std::string> out;
 		std::cout << world.player->location->name << std::endl;
 		std::cout << world.player->location->description << std::endl;
 		std::cout << ">>";
-		std::cin >> input;
-		
+		std::getline(std::cin, input);
+
 		if (input == "quit") {
 			break;
 		}
-		else {
-			//std::cout << "The player is in " << world.player->GetLocation()->name << std::endl;
-			bool move = world.player->Move(input, world.entities);
-			if (move) {
-				//std::cout << "Now the player have moved to " << world.player->GetLocation()->name << std::endl;
-			}
-			else {
-				//std::cout << "Cannot move the player" << std::endl;
-			}
-			
+
+		if (input == "north" || input == "south" || input == "west" || input == "east") {
+			world.player->Move(input, world.entities);
+			continue;
 		}
+
+		tokenize(input, delim, out);
+		if (out.at(0) == "inventory") {
+			world.player->PrintInventory();
+			continue;
+		}
+
+		if (out.at(0) == "get" || out.at(0) == "take" || out.at(0) == "grab") {
+			world.player->Take(out.at(1));
+			continue;
+		}
+
+		
+		std::cout << "Sorry this command is not available." << std::endl;
+
 	}
 
-	std::cout << "Thanks for playing";
+	std::cout << "Thanks for playing to the game!";
 
 	return 0;
 }
+
