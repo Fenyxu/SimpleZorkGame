@@ -2,6 +2,7 @@
 
 #include "Entity.h"
 #include "Room.h"
+#include <list>
 
 
 class Creature :
@@ -13,6 +14,7 @@ public:
 
 public:
     Room* location;
+    std::list<Entity*> inventory;
 
     Room* GetLocation() {
         return location;

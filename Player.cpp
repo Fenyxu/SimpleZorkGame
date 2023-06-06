@@ -1,5 +1,4 @@
 #include "Player.h"
-#include <vector>
 
 Player::Player(std::string name, std::string description, Room* location)
 	: Creature{ name, description, location } {}
@@ -7,12 +6,41 @@ Player::Player(std::string name, std::string description, Room* location)
 
 Player::~Player() {}
 
-bool Player::Move(std::string direction, std::vector<Entity*> entities) {
+void Player::Move(std::string direction, std::vector<Entity*> entities) {
 	Room* room = GetLocation();
 	Exit* exit = room->GetExit(direction, entities);
 	if (exit != NULL) {
 		this->location = exit->destination;
-		return true;
 	}
-	return false;
+}
+
+void Player::Take(std::string itemName) {
+	Room* room = GetLocation();
+	std::list<Item*> items = room->GetItems();
+	if (items.empty()) {
+		return;
+	}
+	else {
+		for (Item *item : items) {
+			if (item->name == itemName) {
+				this->items.push_back(item);
+				room->DeleteItem(item);
+				break;
+			}
+		}
+	}
+}
+
+void Player::PrintInventory() {
+	if (items.empty()) {
+		std::cout << "You have the inventory empty" << std::endl;
+	}
+	else {
+		std::cout << "---Inventory---" << std::endl;
+		for (Item* item : items) {
+			std::cout << item->name << ": " << item->description << std::endl;
+		}
+		std::cout << "---------------" << std::endl;
+	}
+	
 }

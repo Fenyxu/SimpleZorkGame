@@ -4,4 +4,7 @@
 class Item :
     public Entity
 {
+public:
+    Item(std::string name, std::string description);
+    ~Item();
 };
