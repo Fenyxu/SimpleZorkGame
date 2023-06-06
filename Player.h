@@ -14,6 +14,9 @@ private:
     std::list<Item*> items;
 
 public:
+    std::list<Item*> GetItems() {
+        return items;
+    }
     void Move(std::string direction, std::vector<Entity*> entities);
     void Take(std::string item);
     void Drop(std::string item);
