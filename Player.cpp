@@ -31,6 +31,20 @@ void Player::Take(std::string itemName) {
 	}
 }
 
+void Player::Drop(std::string itemName) {
+	if (items.empty()) {
+		return;
+	}
+	for (Item* item : items) {
+		if (item->name == itemName) {
+			DeleteItem(item);
+			Room* room = GetLocation();
+			room->AddItem(item);
+			break;
+		}
+	}
+}
+
 void Player::PrintInventory() {
 	if (items.empty()) {
 		std::cout << "You have the inventory empty" << std::endl;
