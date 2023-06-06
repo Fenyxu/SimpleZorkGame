@@ -16,6 +16,10 @@ private:
 public:
     void Move(std::string direction, std::vector<Entity*> entities);
     void Take(std::string item);
+    void Drop(std::string item);
+    void DeleteItem(Item* item) {
+        this->items.remove(item);
+    }
     void PrintInventory();
 };
 

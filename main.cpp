@@ -52,6 +52,11 @@ int main() {
 			continue;
 		}
 
+		if (out.at(0) == "drop") {
+			world.player->Drop(out.at(1));
+			continue;
+		}
+
 		
 		std::cout << "Sorry this command is not available." << std::endl;
 
