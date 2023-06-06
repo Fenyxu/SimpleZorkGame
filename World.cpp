@@ -31,10 +31,16 @@ World::World() {
 	entities.push_back(kitchen);
 
 	Item* lantern = new Item("lantern", "A lantern");
+	lantern->SetHasSlots(true);
 	basement->AddItem(lantern);
 	entities.push_back(lantern);
 
-	Item* axe = new Item("axe", "An Axe");
+	Item* battery = new Item("battery", "A single battery", BATTERY);
+	battery->SetCanBePlacedInsideContainer(true);
+	livingRoom->AddItem(battery);
+	entities.push_back(battery);
+
+	Item* axe = new Item("axe", "An Axe", WEAPON);
 	logCabin->AddItem(axe);
 	entities.push_back(axe);
 
