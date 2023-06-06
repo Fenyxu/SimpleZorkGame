@@ -97,7 +97,6 @@ int main() {
 				continue;
 			}
 		}
-
 		
 		std::cout << "Sorry this command is not available." << std::endl << std::endl;
 
