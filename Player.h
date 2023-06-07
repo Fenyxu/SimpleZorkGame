@@ -24,5 +24,6 @@ public:
         this->items.remove(item);
     }
     void PrintInventory();
+    void RestoreHealth(Item* item);
 };
 
