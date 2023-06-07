@@ -3,7 +3,6 @@
 #include "World.h"
 #include "Room.h"
 #include "Exit.h"
-#include "Player.h"
 #include "Item.h"
 
 World::World() {
