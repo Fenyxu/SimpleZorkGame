@@ -15,14 +15,14 @@ class Item :
 {
 
 public:
-    Item(std::string name, std::string description, ItemType itemType = COMMON);
+    Item(const std::string name, const std::string description, ItemType itemType = COMMON);
     ~Item();
 
 private:
     ItemType itemType;
     bool hasSlots{ false };
     bool canBePlacedInsideContainer{ false };
-    int baseDamage;
+    int baseDamage{ 0 };
 
 public:
     void AddItemInside(Item* item);
@@ -45,7 +45,7 @@ public:
     ItemType GetItemType() {
         return this->itemType;
     }
-    int GetBaseDamage() {
+    int GetBaseDamage() const{
         return baseDamage;
     }
     void setBaseDamage(int baseDamage) {

@@ -12,8 +12,7 @@ class Room :
 {
 
 public:
-    Room();
-    Room(std::string name, std::string description);
+    Room(const std::string name, const std::string description);
     ~Room();
 
 
@@ -21,8 +20,8 @@ private:
     std::list<Item*> items;
 
 public:
-    std::list<Item*> GetItems();
-    Exit* GetExit(std::string direction, std::vector<Entity*> entities);
+    std::list<Item*> GetItems() const;
+    Exit* GetExit(std::string direction, std::vector<Entity*> entities) const;
     void AddItem(Item* item);
     void DeleteItem(Item* item);
    

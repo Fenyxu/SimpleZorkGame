@@ -3,20 +3,19 @@
 #include "World.h"
 #include "Room.h"
 #include "Exit.h"
-#include "Player.h"
 #include "Item.h"
 
 World::World() {
 	// Rooms
 	// TODO put this data read from file to create Rooms
-	Room* northHouse = new Room("North of the House", "Here you can see the whole north facade of the house.");
+	Room* northHouse = new Room("North of the House", "Here you can see the whole north facade of the house. You can go to the west and to the east.");
 	Room* westHouse = new Room("West of the House", "At the west you can see a cave entrance.\nTo the north you can see a log cabin.\nHere you can see a rusty basement cellar door mid openned.");
 	Room* eastHouse = new Room("East of the House", "You can see a kitchen through the window.");
-	Room* southHouse = new Room("South of the House", "You can see the main door entrance of the house\nThere's also a mailbox.");
+	Room* southHouse = new Room("South of the House", "You can see the main door entrance of the house.");
 	Room* logCabin = new Room("Log cabin", "There's quite a lot of log rests all around. There's an axe firmly fixed in a huge tree stump.");
 	Room* cave = new Room("Cave", "That's a cave.");
-	Room* basement = new Room("Basement", "");
-	Room* livingRoom = new Room("Living Room", "");
+	Room* basement = new Room("Basement", "The basement, with a lantern in the ground.");
+	Room* livingRoom = new Room("Living Room", "You can see a battery in the table.");
 	Room* kitchen = new Room("Kitchen", "There's a table with fresh fruit. One apple, one banana and one orange.");
 
 	// TODO put this logic into a function
@@ -123,9 +122,7 @@ World::World() {
 }
 
 World::~World() {
-	std::cout << "Executing World Entity Destroyer" << std::endl;
 	for (Entity *entity : entities) {
-		std::cout << "Executing Destroyer for Entity " << entity->name << std::endl;
 		delete entity;
 	}
 }

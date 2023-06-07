@@ -6,7 +6,7 @@ class Npc :
 {
 
 public:
-    Npc(std::string name, std::string description, Room* location);
+    Npc(const std::string name, const std::string description, Room* location);
     ~Npc();
 
 

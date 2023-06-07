@@ -1,6 +1,6 @@
 #include "Item.h"
 
-Item::Item(std::string name, std::string description, ItemType itemType)
+Item::Item(const std::string name, const std::string description, ItemType itemType)
 	: Entity{ name, description }, itemType{ itemType } {
 	type = ITEM;
 }
