@@ -55,6 +55,7 @@ bool combat(Player* player, Npc* enemy) {
 		}
 		else {
 			std::cout << "Command not available, try again!" << std::endl;
+			continue;
 		}
 
 		// Enemy turn
