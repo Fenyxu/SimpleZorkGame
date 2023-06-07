@@ -70,7 +70,7 @@ bool combat(Player* player, Npc* enemy) {
 	else if (player->GetHealth() <= 0 && enemy->GetHealth() > 0) {
 		std::cout << "You died!" << std::endl;
 	}
-	
+  
 	return false;
 }
 
@@ -174,10 +174,11 @@ int main() {
 
 	}
 
+
 	if (!success) {
 		std::cout << "You can try again as many times as you want!" << std::endl;
 	}
-
+  
 	std::cout << "Thanks for playing to the game!" << std::endl;
 
 	return 0;

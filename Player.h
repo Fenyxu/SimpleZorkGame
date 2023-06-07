@@ -23,6 +23,7 @@ public:
     void DeleteItem(Item* item) {
         this->items.remove(item);
     }
+    
     void PrintInventory() const;
 };
 
