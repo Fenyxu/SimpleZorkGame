@@ -34,6 +34,7 @@ bool combat(Player* player, Npc* enemy) {
 		std::string command{};
 		std::cout << "Current Player health: " << player->GetHealth() << "HP - Current Werewolf health: " << enemy->GetHealth() << "HP" << std::endl;
 		std::cout << "Available commands: attack or eat" << std::endl;
+		std::cout << ">>";
 		std::cin >> command;
 		// Hero turn
 		if (command == "attack") {
@@ -49,6 +50,9 @@ bool combat(Player* player, Npc* enemy) {
 				std::cout << "You have not more consumables to eat!" << std::endl;
 			}
 		}
+		else if (command == "quit") {
+			break;
+		}
 		else {
 			std::cout << "Command not available, try again!" << std::endl;
 		}
@@ -58,11 +62,15 @@ bool combat(Player* player, Npc* enemy) {
 		player->SetHealth(player->GetHealth() - enemy->GetBaseDamage());
 	} while (player->GetHealth() > 0 && enemy->GetHealth() > 0);
 
-	if (player->GetHealth() > 0) {
+	if (player->GetHealth() > 0 && enemy->GetHealth() <= 0) {
 		std::cout << "The werewolf is dead!" << std::endl;
+		std::cout << "Congratulations for beating the game!" << std::endl;
 		return true;
 	}
-	std::cout << "You died!" << std::endl;
+	else if (player->GetHealth() <= 0 && enemy->GetHealth() > 0) {
+		std::cout << "You died!" << std::endl;
+	}
+	
 	return false;
 }
 
@@ -166,12 +174,10 @@ int main() {
 
 	}
 
-	if (success) {
-		std::cout << "Congratulations for beating the game!" << std::endl;
-	}
-	else {
+	if (!success) {
 		std::cout << "You can try again as many times as you want!" << std::endl;
 	}
+
 	std::cout << "Thanks for playing to the game!" << std::endl;
 
 	return 0;
