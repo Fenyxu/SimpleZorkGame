@@ -13,10 +13,12 @@ This is a list of all the commands available for you:
 | Check inventory  | inventory  |
 | Get/Take/Grab an item  | get/take/grab [itemname]  |
 | Drop an item  | drop [itemname]  |
-| Put an item inside another  | put [itemname] in [itemname]  | Disclaimer: not all items can be put inside others, there must be a relationship between them.
+| Put an item inside another  | put [itemname] in [itemname]  |
 | Go north  | north  |
 | Quit game  | quit  |
 
+**Disclaimer**: not all items can be put inside others, there must be a relationship between them.
+Hint: try putting a battery inside the lantern ;)
 
 # Guide on how to beat the game
 Full path to beat the game, each step is the description and the command you need to execute:
