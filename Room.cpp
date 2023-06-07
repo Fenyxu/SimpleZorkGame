@@ -3,17 +3,14 @@
 #include <iostream>
 #include <vector>
 
-
-Room::Room(){}
-
-Room::Room(std::string name, std::string description) 
+Room::Room(const std::string name, const std::string description) 
 	: Entity{ name, description } {
 	type = ROOM;
 }
 
 Room::~Room() {}
 
-Exit* Room::GetExit(std::string direction, std::vector<Entity*> entities) {
+Exit* Room::GetExit(std::string direction, std::vector<Entity*> entities) const {
 	for (Entity* entity : entities) {
 		if (entity->type == EXIT) {
 			//std::cout << "Exit found " << entity->name << std::endl;
@@ -36,6 +33,6 @@ void Room::DeleteItem(Item* item) {
 	this->items.remove(item);
 }
 
-std::list<Item*> Room::GetItems() {
+std::list<Item*> Room::GetItems() const {
 	return items;
 }

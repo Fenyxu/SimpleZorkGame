@@ -1,7 +1,7 @@
 #include "Creature.h"
 #include "Room.h"
 
-Creature::Creature(std::string name, std::string description, Room* location)
+Creature::Creature(const std::string name, const std::string description, Room* location)
 	: Entity{ name, description }, location{ location } {}
 
 Creature:: ~Creature() {}

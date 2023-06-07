@@ -6,7 +6,7 @@ Player::Player(std::string name, std::string description, Room* location)
 
 Player::~Player() {}
 
-void Player::Move(std::string direction, std::vector<Entity*> entities) {
+void Player::Move(const std::string direction, const std::vector<Entity*> entities) {
 	Room* room = GetLocation();
 	Exit* exit = room->GetExit(direction, entities);
 	if (exit != NULL) {
@@ -45,7 +45,7 @@ void Player::Drop(std::string itemName) {
 	}
 }
 
-void Player::PrintInventory() {
+void Player::PrintInventory() const {
 	if (items.empty()) {
 		std::cout << "You have the inventory empty" << std::endl;
 	}

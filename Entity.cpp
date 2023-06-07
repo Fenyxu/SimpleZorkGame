@@ -2,7 +2,7 @@
 
 Entity::Entity() {}
 
-Entity::Entity(std::string name, std::string description)
+Entity::Entity(const std::string name, const std::string description)
 	: name( name ), description( description ) {
 }
 

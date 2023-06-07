@@ -8,8 +8,7 @@ class Exit :
     public Entity
 {
 public:
-    Exit();
-    Exit(std::string name, std::string description, std::string directionName, std::string oppositeDirectionName, Room* source, Room* destination);
+    Exit(const std::string name, const std::string description, const std::string directionName, const std::string oppositeDirectionName, Room* source, Room* destination);
     ~Exit();
 
 

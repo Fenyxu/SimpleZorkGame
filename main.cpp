@@ -90,6 +90,10 @@ int main() {
 		std::cout << ">>";
 		std::getline(std::cin, input);
 
+		if (input == "") {
+			continue;
+		}
+
 		if (input == "quit") {
 			break;
 		}

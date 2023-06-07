@@ -9,7 +9,7 @@ class Creature :
     public Entity
 {
 public: 
-    Creature(std::string name, std::string description, Room* location);
+    Creature(const std::string name, const std::string description, Room* location);
     ~Creature();
 
 public:
@@ -17,8 +17,8 @@ public:
     std::list<Entity*> inventory;
 
 private:
-    int health;
-    int baseDamage;
+    int health {0};
+    int baseDamage{ 0 };
 
 public:
     Room* GetLocation() {
@@ -40,5 +40,4 @@ public:
     void SetBaseDamage(int baseDamage) {
         this->baseDamage = baseDamage;
     }
-    void Attack();
 };

@@ -1,5 +1,5 @@
 #include "Npc.h"
 
-Npc::Npc(std::string name, std::string description, Room* location)
+Npc::Npc(const std::string name, const std::string description, Room* location)
 	: Creature{ name, description, location } {}
 Npc::~Npc() {}
