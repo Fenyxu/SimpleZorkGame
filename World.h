@@ -3,6 +3,7 @@
 #include <vector>
 #include "Entity.h"
 #include "Player.h"
+#include "Npc.h"
 
 class World
 {
@@ -13,5 +14,7 @@ public:
 public:
 	std::vector<Entity*> entities;
 	Player* player;
+	Npc* enemy;
+	bool combatStarted{ false };
 };
 

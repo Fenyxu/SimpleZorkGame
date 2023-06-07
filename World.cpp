@@ -17,7 +17,7 @@ World::World() {
 	Room* cave = new Room("Cave", "That's a cave.");
 	Room* basement = new Room("Basement", "");
 	Room* livingRoom = new Room("Living Room", "");
-	Room* kitchen = new Room("Kitchen", "");
+	Room* kitchen = new Room("Kitchen", "There's a table with fresh fruit. One apple, one banana and one orange.");
 
 	// TODO put this logic into a function
 	entities.push_back(northHouse);
@@ -41,8 +41,19 @@ World::World() {
 	entities.push_back(battery);
 
 	Item* axe = new Item("axe", "An Axe", WEAPON);
+	axe->setBaseDamage(30);
 	logCabin->AddItem(axe);
 	entities.push_back(axe);
+
+	Item* apple = new Item("apple", "An apple", CONSUMABLE);
+	Item* banana = new Item("banana", "A banana", CONSUMABLE);
+	Item* orange = new Item("orange", "An orange", CONSUMABLE);
+	kitchen->AddItem(apple);
+	kitchen->AddItem(banana);
+	kitchen->AddItem(orange);
+	entities.push_back(apple);
+	entities.push_back(banana);
+	entities.push_back(orange);
 
 	// Exits
 	// TODO put this data read from file to create all the Exits
@@ -100,8 +111,15 @@ World::World() {
 
 	
 	player = new Player("The Player", "This a future Hero", southHouse);
+	player->SetHealth(100);
+	player->SetBaseDamage(10);
+
+	enemy = new Npc("The werewolf", "The bloodthirsty werewolf", cave);
+	enemy->SetHealth(200);
+	enemy->SetBaseDamage(20);
 
 	entities.push_back(player);
+	entities.push_back(enemy);
 }
 
 World::~World() {

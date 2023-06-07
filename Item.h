@@ -22,6 +22,7 @@ private:
     ItemType itemType;
     bool hasSlots{ false };
     bool canBePlacedInsideContainer{ false };
+    int baseDamage;
 
 public:
     void AddItemInside(Item* item);
@@ -40,5 +41,14 @@ public:
     }
     void SetItemType(ItemType itemType) {
         this->itemType = itemType;
+    }
+    ItemType GetItemType() {
+        return this->itemType;
+    }
+    int GetBaseDamage() {
+        return baseDamage;
+    }
+    void setBaseDamage(int baseDamage) {
+        this->baseDamage = baseDamage;
     }
 };
