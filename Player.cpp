@@ -45,6 +45,14 @@ void Player::Drop(std::string itemName) {
 	}
 }
 
+void Player::Look() {
+	Room* room = GetLocation();
+	for (std::string surrounding : room->GetSurroundings()) {
+		std::cout << surrounding << std::endl;
+	}
+	
+}
+
 void Player::PrintInventory() const {
 	if (items.empty()) {
 		std::cout << "You have the inventory empty" << std::endl;
