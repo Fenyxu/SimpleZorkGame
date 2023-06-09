@@ -53,6 +53,9 @@ bool combat(Player* player, Npc* enemy) {
 		else if (command == "quit") {
 			break;
 		}
+		else if (command == "") {
+			continue;
+		}
 		else {
 			std::cout << "Command not available, try again!" << std::endl;
 			continue;
@@ -112,6 +115,10 @@ int main() {
 			if (player->GetLocation()->name == "Cave") {
 				world.combatStarted = true;
 			}
+			continue;
+		}
+		if (input == "look") {
+			player->Look();
 			continue;
 		}
 
