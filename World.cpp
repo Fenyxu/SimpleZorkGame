@@ -17,12 +17,24 @@ World::World() {
 	westHouse->AddSurrounding("To the north you can see a Log Cabin.");
 	westHouse->AddSurrounding("Here you can see a rusty basement cellar door mid openned.");
 
-	Room* eastHouse = new Room("East of the House", "You can see a kitchen through the window.");
-	Room* southHouse = new Room("South of the House", "You can see the main door entrance of the house.");
-	Room* logCabin = new Room("Log cabin", "There's quite a lot of log rests all around. There's an axe firmly fixed in a huge tree stump.");
-	Room* cave = new Room("Cave", "That's a cave.");
-	Room* basement = new Room("Basement", "The basement, with a lantern in the ground.");
-	Room* livingRoom = new Room("Living Room", "You can see a battery in the table.");
+	Room* eastHouse = new Room("East of the House", "");
+	eastHouse->AddSurrounding("You can see a kitchen through the window.");
+
+	Room* southHouse = new Room("South of the House", "This seem to be the main entrance to the house");
+	southHouse->AddSurrounding("You can see the main door entrance of the house.");
+
+	Room* logCabin = new Room("Log cabin", "There's quite a lot of log rests all around.");
+	logCabin->AddSurrounding("There's an axe firmly fixed in a huge tree stump.");
+
+	Room* cave = new Room("Cave", "It's pretty dark in here, there's a huge werewolf looking at you!");
+	cave->AddSurrounding("Now it's not time to look around! The werewolf is trying to kill you!");
+
+	Room* basement = new Room("Basement", "The basement, plenty of rusty stuff");
+	basement->AddSurrounding("There's a lantern in the ground.");
+
+	Room* livingRoom = new Room("Living Room", "Fulfilled with luxurious furniture.");
+	livingRoom->AddSurrounding("You can see a battery in the table.");
+
 	Room* kitchen = new Room("Kitchen", "There's a table with fresh fruit.");
 	kitchen->AddSurrounding("You can see one apple, one banana and one orange");
 
